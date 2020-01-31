@@ -8,6 +8,8 @@ services:
       - ./frontend:/home/node/app
     ports:
       - "9001:8080"
+    links:
+      - backend
     command: "npm run serve"
 
   backend:
@@ -18,6 +20,8 @@ services:
       - ./backend:/home/node/app
     ports:
       - "9000:3000"
+    links:
+      - database
     command: "npm start"
 
   database:
